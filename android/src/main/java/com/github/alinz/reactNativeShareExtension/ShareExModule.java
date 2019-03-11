@@ -59,8 +59,10 @@ public class ShareExModule extends ReactContextBaseJavaModule implements Activit
     @ReactMethod
     public void close() {
         Activity currentActivity = getCurrentActivity();
-
-        currentActivity.finish();
+        
+        if (currentActivity != null) {
+            currentActivity.finish();            
+        }
     }
 
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) { }
